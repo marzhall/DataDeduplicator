@@ -101,7 +101,7 @@ def weightClosenessByAverage(comparison, averageComparison):
     overallWeight = 0
     for field in zip(comparison, averageComparison):
         value1, value2 = field
-        differenceFromAverage = 1.0/(100.0 if (value2-value1) == 0 else (value2 - value1))
+        differenceFromAverage = value1*abs(1.0/(100.0 if (value2-value1) == 0 else (value2 - value1)))
         print str(value1) + " " + str(value2) + " " + str(value1 - value2) + " " + str(differenceFromAverage)
         overallWeight = overallWeight + differenceFromAverage
 
@@ -111,7 +111,7 @@ def main():
     wordFrequencies = getWords(dataset)
     averageDistance = computeAverageDistancePerField(dataset)
     print averageDistance
-    print getMostSimilarToIndividualRecord(dataset[0], dataset[1:], wordFrequencies, averageDistance)
+    print getMostSimilarToIndividualRecord(dataset[4], dataset, wordFrequencies, averageDistance)
 
 
 
