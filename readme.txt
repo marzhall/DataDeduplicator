@@ -51,10 +51,9 @@ dy/```.o-``````+/```````-o-``````-oy+odMMMMMN-  .    /mMMMMN-  .NNNNNNNNhhhhhhhh
 -``````````````-s````````.+/```````smNMMMMMm-   .      :syo`   `NNNNNNNmhhhhhhhhmooodddhdmhhhhhhhNmm
                                                                         art by:       Text-image.com 
 
-The Deadly De-duplicator uses Levenshtein distance and word frequency occurance
-to fuzzily match arbitrary-length records that are similar to each other. It
-weighs the importance of each field of a record based on the average overall
-Levenshtein distance between all records.
+The Deadly Data De-Duplicator uses Levenshtein distance and word frequency occurance
+to fuzzily match arbitrary-length records that are similar to each other. It weighs 
+the importance of each field of a record based on the average overall Levenshtein 
+distance between all records.
 
-Currently, only the test data is used. The ability to read a file will be added
-soon.
+Currently, only the test data is used. The ability to read a file will be added soon.
