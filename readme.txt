@@ -49,7 +49,7 @@ mdhhhhhhs+:/+:````````.s.````-ys++++ohMMMMMMMMm:. :NMMMMMMMMM/ :NNNNNNNNmhhhhhhm
 dhhds/..///.```/.``````-s.`````:ss++++dMMMMMMN-`.  .hMMMMMMMm` -NNNNNNNNdhhhhhhdhoosmhhhmdhhhhhhNmmm
 dy/```.o-``````+/```````-o-``````-oy+odMMMMMN-  .    /mMMMMN-  .NNNNNNNNhhhhhhhhdoooNmhhmdhhhhhhmNmm
 -``````````````-s````````.+/```````smNMMMMMm-   .      :syo`   `NNNNNNNmhhhhhhhhmooodddhdmhhhhhhhNmm
-                                                   art by:       Test-image.com 
+                                                                        art by:       Text-image.com 
 
 The Deadly De-duplicator uses Levenshtein distance and word frequency occurance
 to fuzzily match arbitrary-length records that are similar to each other. It
