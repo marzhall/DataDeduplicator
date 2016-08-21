@@ -52,8 +52,15 @@ dy/```.o-``````+/```````-o-``````-oy+odMMMMMN-  .    /mMMMMN-  .NNNNNNNNhhhhhhhh
                                                                         art by:       Text-image.com 
 
 The Deadly Data De-Duplicator uses Levenshtein distance and word frequency occurance
-to fuzzily match arbitrary-length records that are similar to each other. It weighs 
-the importance of each field of a record based on the average overall Levenshtein 
-distance between all records.
+to fuzzily match arbitrary-length records. The importance of each field of a record
+is based on the average Levenshtein distance of that field among all records.
 
-Currently, only the test data is used. The ability to read a file will be added soon.
+The usage of the tool is:
+    python dataDeduplicator <file>
+
+where the file argument is a database represented with each row as a line, and
+each field separated by a comma.
+
+Once the data is loaded and parsed, users can select a row by its line number,
+and get an ordered list of records in response of most -> least related
+records.
