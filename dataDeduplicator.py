@@ -117,10 +117,12 @@ def main():
         print "Items in dataset are:"
         for i in range(0, len(dataset)-1):
             print str(i) +": " + str(dataset[i])
-        print "Select a value by its index to see the records fuzzily closest to it."
+        print "Select a value by its index to see the records in order of how fuzzily close they are to it."
         sys.stdout.flush()
         x = int(input())
-        print getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance)
+        for record in getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance):
+            print record
+        print ""
 
 if __name__ == "__main__":
     main()
