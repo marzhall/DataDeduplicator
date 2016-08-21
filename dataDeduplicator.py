@@ -128,6 +128,8 @@ def main():
         for record in getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance):
             print record
         print ""
+        sys.stdout.flush()
+        input("Press enter to continue.")
 
 if __name__ == "__main__":
     main()
