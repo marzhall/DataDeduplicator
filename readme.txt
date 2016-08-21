@@ -62,5 +62,4 @@ where the file argument is a database represented with each row as a line, and
 each field separated by a comma.
 
 Once the data is loaded and parsed, users can select a row by its line number,
-and get an ordered list of records in response of most -> least related
-records.
+and get an ordered list of records in order of most -> least related records.
