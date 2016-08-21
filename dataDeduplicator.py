@@ -89,11 +89,14 @@ def getMostSimilarToIndividualRecord(record, listOfOtherRecords, wordFrequencies
     return [results[str(value)] for value in (sorted(levDistances, key=lambda x: int(math.floor((weightClosenessByAverage(x, averageDistance))*100))))]
 
 def weightClosenessByAverage(comparison, averageComparison):
-    overallWeight = 0
+    overallWeight = 0.0
     for field in zip(comparison, averageComparison):
         value1, value2 = field
-        differenceFromAverage = value1*abs(1.0/(100.0 if (value2-value1) == 0 else (value2 - value1)))
+        value1 = 1.0 if value1 == 0 else value1
         # print str(value1) + " " + str(value2) + " " + str(value1 - value2) + " " + str(differenceFromAverage)
+        # old method: seems les reliable than following line's method 
+        # differenceFromAverage = value1*abs(1.0/(100.0 if (value2-value1) == 0 else (value2 - value1)))
+        differenceFromAverage = value1*abs(value2/value1)
         overallWeight = overallWeight + differenceFromAverage
 
     return overallWeight
@@ -103,10 +106,8 @@ def getDataset(datasetFile):
     result = []
     with open(datasetFile, 'r') as f:
         data = f.readlines()
-    print data
     for line in data:
         result.append(line.split(','))
-    print result
     sys.stdout.flush()
     return result
     
