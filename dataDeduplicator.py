@@ -113,7 +113,6 @@ def main():
     wordFrequencies = getWords(dataset)
     averageDistance = computeAverageDistancePerField(dataset)
     #print averageDistance
-    print "one"
     while True:
         print "Items in dataset are:"
         for i in range(0, len(dataset)-1):
