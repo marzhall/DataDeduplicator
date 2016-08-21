@@ -1,0 +1,13 @@
+IBM,0691197987,contact@ibm.com,www.ibm.com,1
+Heroku,4519080374,feedback@heroku.com,signup.heroku.com,1
+Dockers,3072134041,contact@dockers.com,www.dockers.com,1
+ANSYS,1374023052,,www.ansys.com,1
+ANSYS Inc.,1374023052,contact@ansys.com,www.ansys.com,1
+The New York Times,1848312818,nytnews@nytimes.com,www.nytimes.com,1
+The Gaurdian,5139764161,us-hr@gaurdian.com,www.thegaurdian.com,1
+International Business Machines,0691197987,contact@ibm.com,www.ibmserver.com,1
+Docker,6356809766,contact@docker.com,www.docker.com,1
+The Huffington Post,6230388160,scoop@huffingtonpost.com,www.huffingtonpost.com,1
+AMD,7079013926,corporate.query@amd.com,www.amd.com,1
+NVIDIA,1830157005,info@nvidia.com,www.nvidia.com,1
+Amazon,8711666456,ship-confirm@amazon.com,www.amazon.com,1

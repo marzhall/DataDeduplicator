@@ -1,19 +1,6 @@
 import math
 import sys
-
-dataset = [["IBM", "0691197987", "contact@ibm.com", "www.ibm.com"],
-    ["Heroku", "4519080374", "feedback@heroku.com", "signup.heroku.com"],
-    ["Dockers", "3072134041", "contact@dockers.com", "www.dockers.com"],
-    ["ANSYS", "1374023052", "", "www.ansys.com"],
-    ["ANSYS, Inc.", "1374023052", "contact@ansys.com", "www.ansys.com"],
-    ["The New York Times", "1848312818", "nytnews@nytimes.com", "www.nytimes.com"],
-    ["The Gaurdian", "5139764161", "us-hr@gaurdian.com", "www.thegaurdian.com"],
-    ["International Business Machines", "0691197987", "contact@ibm.com", "www.ibmserver.com"],
-    ["Docker", "6356809766", "contact@docker.com", "www.docker.com"],
-    ["The Huffington Post", "6230388160", "scoop@huffingtonpost.com", "www.huffingtonpost.com"],
-    ["AMD", "7079013926", "corporate.query@amd.com", "www.amd.com"],
-    ["NVIDIA", "1830157005", "info@nvidia.com", "www.nvidia.com"],
-    ["Amazon", "8711666456", "ship-confirm@amazon.com", "www.amazon.com"]]
+import argparse
 
 def getWords(database):
     allWords = []
@@ -109,7 +96,25 @@ def weightClosenessByAverage(comparison, averageComparison):
 
     return overallWeight
 
+def getDataset(datasetFile):
+    data = None
+    result = []
+    with open(datasetFile, 'r') as f:
+        data = f.readlines()
+    print data
+    for line in data:
+        result.append(line.split(','))
+    print result
+    sys.stdout.flush()
+    return result
+    
+
 def main():
+    parser = argparse.ArgumentParser(prog="dataDeduplicator.py")
+    parser.add_argument('file', nargs='?', default="testDataset.txt")
+    value = parser.parse_args()
+    datasetFile = vars(value)["file"]
+    dataset = getDataset(datasetFile)
     wordFrequencies = getWords(dataset)
     averageDistance = computeAverageDistancePerField(dataset)
     #print averageDistance
