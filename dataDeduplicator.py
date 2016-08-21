@@ -49,7 +49,9 @@ def levenshtein(s1, s2):
 def getWeightedLevDistance(foo, bar, words):
     wordsInFoo = splitByNonAlphaNumeric(foo)
     wordsInBar = splitByNonAlphaNumeric(bar)
-    sharedWords = list(set(wordsInFoo) & set(wordsInBar))
+    compoundWordsFromFooInBar = [word for word in wordsInFoo if word in bar] # catch instances like 'ibm' in 'ibmserver', which would otherwise be separate words.
+    compoundWordsFromBarInFoo = [word for word in wordsInBar if word in foo]
+    sharedWords = list(set(wordsInFoo) & set(wordsInBar) & set(compoundWordsFromFooInBar) & set(compoundWordsFromBarInFoo))
     valueInSharedWords = sum((1.0/words[value]) for value in sharedWords) # the more frequenct a word, the less it will be worth.
     #print valueInSharedWords
     return levenshtein(foo, bar) - valueInSharedWords
@@ -128,8 +130,9 @@ def main():
         for record in getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance):
             print record
         print ""
+        print "Press enter to continue."
         sys.stdout.flush()
-        input("Press enter to continue.")
+        raw_input()
 
 if __name__ == "__main__":
     main()
