@@ -1,4 +1,4 @@
-IBM,1790161366,contact@ibm.com,www.ibm.com,1
+IBM,1790161366,contacts@ibm.com,www.ibm.com,1
 Heroku,4519080374,feedback@heroku.com,signup.heroku.com,1
 Dockers,3072134041,contact@dockers.com,www.dockers.com,1
 ANSYS,1374023052,,www.ansys.com,1
