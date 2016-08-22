@@ -57,9 +57,15 @@ is based on the average Levenshtein distance of that field among all records.
 
 The usage of the tool is:
     python dataDeduplicator <file>
+or
+    python --num_matches <number_of_matched_records_to_display> --record <zero-based index of record in file you want to match> <file>
 
-where the file argument is a database represented with each row as a line, and
-each field separated by a comma.
+where:
+    - the file argument is a database represented with each row as a line, and each field separated by a comma.
+    - the --num-matches line specifies how many matched results to display
+    - the record argument specifies which record you want to match. Passing this argument will result in the output being printed to
+      stdout, then the program exiting.
 
-Once the data is loaded and parsed, users can select a row by its line number,
-and get an ordered list of records in order of most -> least related records.
+If the --record argument is not passed, Once the data is loaded and parsed, 
+users can select a row by its line number, and get an ordered list of records
+in order of most -> least related records.

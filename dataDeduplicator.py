@@ -86,7 +86,7 @@ def getMostSimilarToIndividualRecord(record, listOfOtherRecords, wordFrequencies
         results[str(comparisonDistance)] = [otherRecord for (rec, otherRecord) in comparison]
     #for levDist in levDistances:
         # print "For " + str(levDist) +  " weight average is " + str(math.floor(weightClosenessByAverage(levDist, averageDistance)*100))
-    return reversed([results[str(value)] for value in (sorted(levDistances, key=lambda x: int(math.floor((weightClosenessByAverage(x, averageDistance))*100))))])
+    return list(reversed([results[str(value)] for value in (sorted(levDistances, key=lambda x: int(math.floor((weightClosenessByAverage(x, averageDistance))*100))))]))
 
 def weightClosenessByAverage(comparison, averageComparison):
     overallWeight = 0.0
@@ -115,25 +115,35 @@ def getDataset(datasetFile):
 def main():
     parser = argparse.ArgumentParser(prog="dataDeduplicator.py")
     parser.add_argument('file', nargs='?', default="testDataset.txt")
+    parser.add_argument('-n', '--num_matches', type=int, dest="num_matches", default=10, help="The number of matches to display. Defaults to ten.")
+    parser.add_argument('-r', '--record', dest="record", type=int, default=-1, help="The row number of the record you want to match, 0-indexed.")
     value = parser.parse_args()
     datasetFile = vars(value)["file"]
+    num_matches = vars(value)["num_matches"]
+    record = vars(value)["record"]
     dataset = getDataset(datasetFile)
     wordFrequencies = getWords(dataset)
     averageDistance = computeAverageDistancePerField(dataset)
     #print averageDistance
-    while True:
-        print "Items in dataset are:"
-        for i in range(0, len(dataset)-1):
-            print str(i) +": " + str(dataset[i])
-        print "Select a value by its index to see the records in order of how fuzzily close they are to it."
-        sys.stdout.flush()
-        x = int(input())
-        for record in getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance):
-            print record
-        print ""
-        print "Press enter to continue."
-        sys.stdout.flush()
-        raw_input()
+    if (record == -1):
+        while True:
+            print "Items in dataset are:"
+            for i in range(0, len(dataset)-1):
+                print str(i) +": " + str(dataset[i])
+            print "Select a value by its index to see the records in order of how fuzzily close they are to it."
+            sys.stdout.flush()
+            x = int(input())
+            rankedRecords=getMostSimilarToIndividualRecord(dataset[x], dataset, wordFrequencies, averageDistance)
+            for i in range(0, min(len(dataset) - 1, num_matches)):
+                print rankedRecords[i]
+            print ""
+            print "Press enter to continue."
+            sys.stdout.flush()
+            raw_input()
+    else:
+            rankedRecords=getMostSimilarToIndividualRecord(dataset[record], dataset, wordFrequencies, averageDistance)
+            for i in range(0, min(len(dataset) - 1, num_matches)):
+                print rankedRecords[i]
 
 if __name__ == "__main__":
     main()
