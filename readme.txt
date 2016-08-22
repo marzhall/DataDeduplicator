@@ -62,8 +62,8 @@ or
 
 where:
     - the file argument is a database represented with each row as a line, and each field separated by a comma.
-    - the --num-matches line specifies how many matched results to display
-    - the record argument specifies which record you want to match. Passing this argument will result in the output being printed to
+    - the --num-matches argument specifies how many matched results to display
+    - the --record argument specifies which record you want to match. Passing this argument will result in the output being printed to
       stdout, then the program exiting.
 
 If the --record argument is not passed, Once the data is loaded and parsed, 
