@@ -86,7 +86,7 @@ def getMostSimilarToIndividualRecord(record, listOfOtherRecords, wordFrequencies
         results[str(comparisonDistance)] = [otherRecord for (rec, otherRecord) in comparison]
     #for levDist in levDistances:
         # print "For " + str(levDist) +  " weight average is " + str(math.floor(weightClosenessByAverage(levDist, averageDistance)*100))
-    return list(reversed([results[str(value)] for value in (sorted(levDistances, key=lambda x: int(math.floor((weightClosenessByAverage(x, averageDistance))*100))))]))
+    return [results[str(value)] for value in (sorted(levDistances, key=lambda x: int(math.floor((weightClosenessByAverage(x, averageDistance))*100))))]
 
 def weightClosenessByAverage(comparison, averageComparison):
     overallWeight = 0.0
@@ -94,7 +94,7 @@ def weightClosenessByAverage(comparison, averageComparison):
         value1, value2 = field
         value1 = 0.00001 if (value1 <=0) else value1
         value2 = 2 if value2 <=2 else value2
-        differenceFromAverage = (math.log(value1, abs(value2))/math.log(0.5))
+        differenceFromAverage = math.log(value1, abs(value2))
         #print str(value1) + " " + str(value2) + " " + str(differenceFromAverage)
         overallWeight = overallWeight + differenceFromAverage
 
