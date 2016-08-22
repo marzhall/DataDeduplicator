@@ -66,6 +66,7 @@ where:
     - the --record argument specifies which record you want to match. Passing this argument will result in the
       output being printed to stdout, then the program exiting.
 
-If the --record argument is not passed, Once the data is loaded and parsed, 
+If the --record argument is not passed, once the data is loaded and parsed, 
 users can select a row by its line number, and get an ordered list of records
-in order of most -> least related records.
+in order of most -> least related records. Otherwise, the program will print
+matches, then exit.
