@@ -94,11 +94,11 @@ def weightClosenessByAverage(comparison, averageComparison):
         value1, value2 = field
         value1 = 0.00001 if (value1 <=0) else value1
         differenceFromAverage = (math.log(value1)/math.log(0.5))*(math.log(abs(value2 - value1)))
-        print str(value1) + " " + str(value2) + " " + str(differenceFromAverage)
+        #print str(value1) + " " + str(value2) + " " + str(differenceFromAverage)
         overallWeight = overallWeight + differenceFromAverage
 
-    print "overallweight is " + str(overallWeight)
-    print ""
+    #print "overallweight is " + str(overallWeight)
+    #print ""
     return overallWeight
 
 def getDataset(datasetFile):
